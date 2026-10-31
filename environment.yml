@@ -1,0 +1,17 @@
+name: aru-y2t1-assignment
+
+channels:
+  - conda-forge
+
+dependencies:
+  - python=3.12
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - scipy
+  - scikit-learn
+  - scikit-image
+  - pillow
+  - jupyterlab
+  - ipykernel
