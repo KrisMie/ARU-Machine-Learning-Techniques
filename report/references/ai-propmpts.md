@@ -8,7 +8,7 @@ AI Tool: OpenAI ChatGPT
 Purpose: Research assistance, theoretical explanations,
 implementation guidance, debugging and interpretation.
 
-## 27 October 2026 — Project Preparation
+## Project Preparation
 
 1. "I am starting my ARU MSc Machine Learning Techniques coursework, using the PlantVillage colour image dataset.
 I want you to act as a tutor and research assistant, guiding me through the assignment rather than generating a complete solution.
@@ -49,3 +49,22 @@ It says "The repository provides colour, grayscale and segmented image versions.
 5. My total count is 54305, while the repository says there are 54306 images - is my code missing one image?
 
 When you introduce new concepts, like image/data balancing, augmentation, oversampling or other, point me to the reading sections, chapters about it in our reference materials if possible so i can learn more.
+
+6. To display one random image I have:
+my_random = 2441156
+random.seed(my_random)
+
+img = Image.open(random.choice(all_images))
+
+print(f'Image size: {img.size}')
+print(f'Image mode: {img.mode}')
+print(f'Image format: {img.format}')
+
+display(img)
+
+but it displays different image everytime - should it not be the same since i provided seed?
+
+7. That image is not an image of a leaf at all - we should remove it? Should i do it manually (i know the path) or programatically?
+
+8. It belongs to healthy "Pepper,_bell___healthy" class/directory.
+Question: should i remove it from all_images after the code that found it, or modify the original path? If i modify original, the notebook won't show the full story. I do this in eds.ipynb - will i be able to export the prepared dataset to use in other notebooks files where I will build the models?
