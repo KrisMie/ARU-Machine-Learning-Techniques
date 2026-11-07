@@ -136,3 +136,42 @@ Mapping: ['Tomato___Bacterial_spot:::121.0']
 
 What should be the next step?
 Do I have to manually make the datasets and based on leaf-map.json and images and select the images interpreting the assignment wording: "2.	Download the PlantVillage dataset from the provided link and use the raw/color images. Create reproducible training, validation and test splits, keeping images of the same leaf together using the repository’s leaf-grouping metadata. Apply augmentation only to the training data." and "3.	Data Processing/Feature Engineering: Describe the image preprocessing and feature engineering methods that you have used. Explain how these methods work mathematically for your dataset and document your training, validation and test splits and how you avoided data leakage." - the repository also contains  what seem to be already sorted leafmaps?
+
+12. It looks like "Apple_Frogeye Spot" has entries in leaf_maps csv and leaf-map.json following "jr_frge.s" pattern but the image directory name is "Apple___Black_rot" so the images won't be selected if compared to class name taken from directory. there may be more instances like that.
+
+13. I renamed "selected_group" to "leaf_id" since this var only holds the leaf id that applies to multiple leaves.
+Will my key[value] get replaced in mappings dictionary when it will encounter class with different leaf_id and I will lend up having only one id per class?
+Check my code:
+
+random.seed(my_random)
+
+images_to_check = random.sample(clean_images, 3)
+
+print(f'Number of images to check: {len(images_to_check)}\n')
+
+for img_path in images_to_check:
+    image_id = get_image_id(img_path)
+
+    print(f'Filename: {img_path.name}')
+    print(f'Image ID: {image_id}')
+    
+    mappings = {}
+
+    mapping = images_metadata.get(image_id)
+
+    print(f'Mapping: {mapping}')
+
+    for item in mapping:
+        split = split_metadata(item)
+        mappings[split[0]] = split[1]
+        print(f'Split mapping:\n    Leaf class: {split[0]}\n    Leaf group: {split[1]}')
+
+    class_name = img_path.parent.name
+    leaf_id = mappings.get(class_name)
+
+    print(f'Class: {class_name}')
+    print(f'Leaf ID: {leaf_id}\n')
+
+14. How to test test the missing-metadata case and whet do you mean by "One final observation: your function currently builds the entire mappings dictionary even though you only need one class-specific value.
+
+15. 
