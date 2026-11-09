@@ -223,3 +223,22 @@ I cannot find anything in the repo showing the images assignment to splits."
 19. "The HuggingFace repository says "The dataset comes with pre-defined 80/20 train/test splits that preserve the leaf grouping logic (ensuring images of the same leaf do not appear in both sets).  " - does it mean they did not include the images without metadata mapping?"
 
 21. "I have emailed my tutor to clarify the requirements. In the meantime let's investigate whether the 13,193 unresolved images exhibit filename patterns that might provide additional, defensible grouping information—without assuming those patterns establish physical-leaf identity. In case I have to use them."
+
+22. "OK, Does it mean I can use:
+"pip install datasets" 
+and
+"from datasets import load_dataset
+
+Load the dataset (default: color images)
+dataset = load_dataset("mohanty/PlantVillage", "color")"
+
+since this is the instruction in repository, and then for example split training set to training + validation?
+Or should i inspect color_train.txt and color_test.txt manifests and apply to my images I have on disk?"
+
+23. "I have converted the paths to :
+"Sample converted local paths:
+raw/color/Strawberry___healthy/80372fb3-2a02-4989-9396-6732cd47cb75___RS_HL 1623.JPG
+raw/color/Cherry_(including_sour)___Powdery_mildew/2c972b35-2f4c-4658-ac84-3bb1af7a746d___FREC_Pwd.M 4660.JPG
+raw/color/Cherry_(including_sour)___Powdery_mildew/4d53f660-e6ef-47b0-8f12-24a6f7e5ddbb___FREC_Pwd.M 0523.JPG"
+but not stored anywhere yet.
+Do i have to use the original set or cleaned if i use the repo splits?"
