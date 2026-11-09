@@ -60,6 +60,7 @@ def load_images():
         "number_classes": number_classes,
         "class_counts": class_counts,
         "class_distribution": class_distribution,
+        "all_images": all_images,
         "clean_images": clean_images,
         "all_rgb": all_rgb
     }
